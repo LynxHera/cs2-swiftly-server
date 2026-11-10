@@ -15,6 +15,8 @@ COPY --chmod=755 entrypoint.sh /entrypoint.sh
 RUN sed -i '1s/^\xEF\xBB\xBF//' /entrypoint.sh \
     && sed -i 's/\r$//' /entrypoint.sh \
     && chmod +x /entrypoint.sh
+    
+ENV LD_LIBRARY_PATH="/home/steam/Steam/steamapps/common/Counter-Strike Global Offensive/game/bin/linuxsteamrt64:/home/steam/Steam/steamapps/common/Counter-Strike Global Offensive/game/csgo/bin/linuxsteamrt64"
 
 USER steam
 WORKDIR /home/steam
