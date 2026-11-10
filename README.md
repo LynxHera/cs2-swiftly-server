@@ -1,15 +1,7 @@
-# Coolify CS2 + SwiftlyS2
+CS2 + SwiftlyS2 Coolify - revised
 
-Coolify > New Resource > Git Repository > Docker Compose. Commit all three deployment files to a Git repository.
+SteamCMD previously installed CS2 to /home/steam/Steam/steamapps/common/Counter-Strike Global Offensive, ignoring the requested install location. This version persists the actual Steam library steamapps directory, including the appmanifest.
 
-Set `CS2_GSLT` in Coolify environment variables (Steam game server token, App ID 730). Open UDP 27015 in host/provider firewall. Deploy.
+Create a new Coolify Docker Compose application using these three files at repository root. Configure CS2_GSLT as environment variable. Deploy and monitor logs. Do not reuse the previous empty cs2_data volume expecting it to populate automatically. First install requires substantial disk space. Update toggles are opt-in.
 
-First boot installs CS2 and latest **stable** Linux SwiftlyS2 with runtimes. A persistent named volume preserves CS2, plugins and configs between redeploys/restarts. Do **not** delete the volume.
-
-Optional environment flags (default 0):
-- `CS2_UPDATE_ON_START=1`: validate/update CS2 on next start; set back to 0 afterward.
-- `SWIFTLY_UPDATE_ON_START=1`: download latest SwiftlyS2 on next start; set back to 0 afterward. Back up plugin files before framework upgrades.
-
-Verify Swiftly by entering `sw` in the CS2 server console. Plugin location: `/home/steam/cs2/game/csgo/addons/swiftlys2/` (follow plugin-specific directory instructions).
-
-**Note:** This package has not been deployed/tested on your host. If your existing deployment uses a different named volume, migrate its data before switching, otherwise a fresh volume will be created.
+Swiftly installation logic is carried over from the original package and has not been tested on a running server. Check release archive layout and gameinfo loader compatibility if Swiftly installation fails.

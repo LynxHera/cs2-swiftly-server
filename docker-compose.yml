@@ -14,7 +14,7 @@ services:
       - "27015:27015/udp"
       - "27015:27015/tcp"
     volumes:
-      - cs2_data:/home/steam/cs2
+      - cs2_steamapps:/home/steam/Steam/steamapps
     stop_grace_period: 45s
 volumes:
-  cs2_data:
+  cs2_steamapps:

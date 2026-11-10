@@ -1,12 +1,12 @@
 #!/bin/bash
 set -euo pipefail
-INSTALL_DIR=/home/steam/cs2
+INSTALL_DIR="/home/steam/Steam/steamapps/common/Counter-Strike Global Offensive"
 GAME_DIR="$INSTALL_DIR/game/csgo"
 SWIFTLY_DIR="$GAME_DIR/addons/swiftlys2"
-mkdir -p "$INSTALL_DIR"
+mkdir -p "/home/steam/Steam/steamapps"
 if [[ ! -f "$INSTALL_DIR/game/bin/linuxsteamrt64/cs2" || "${CS2_UPDATE_ON_START:-0}" == "1" ]]; then
-  echo '[CS2] Installing/updating game (persistent volume)...'
-  /home/steam/steamcmd/steamcmd.sh +force_install_dir "$INSTALL_DIR" +login anonymous +app_update 730 validate +quit
+  echo '[CS2] Installing/updating game in persistent Steam library...'
+  /home/steam/steamcmd/steamcmd.sh +login anonymous +app_update 730 validate +quit
 fi
 [[ -f "$INSTALL_DIR/game/bin/linuxsteamrt64/cs2" ]] || { echo '[CS2] executable missing' >&2; exit 1; }
 if [[ ! -d "$SWIFTLY_DIR" || "${SWIFTLY_UPDATE_ON_START:-0}" == "1" ]]; then
