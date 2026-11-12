@@ -8,8 +8,8 @@ services:
       CS2_MAP: "de_dust2"
       CS2_GSLT: "${CS2_GSLT:-}"
       CS2_HOSTNAME: "Coolify CS2 SwiftlyS2"
-      CS2_UPDATE_ON_START: "0"
-      SWIFTLY_UPDATE_ON_START: "0"
+      CS2_UPDATE_ON_START: "${CS2_UPDATE_ON_START:-0}"
+      SWIFTLY_UPDATE_ON_START: "${SWIFTLY_UPDATE_ON_START:-0}"
       SWIFTLY_ENABLED: "${SWIFTLY_ENABLED:-1}"
     ports:
       - "27015:27015/udp"
